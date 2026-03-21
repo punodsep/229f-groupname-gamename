@@ -1,0 +1,88 @@
+﻿using System.Collections;
+using System.Security.Cryptography;
+using UnityEngine;
+
+public class PlayerController : MonoBehaviour
+{
+    public float moveAcceleration = 10f;
+
+    [Header("Rotate")]
+    public float rotateSpeed = 120f;
+
+    [Header("Dash")]
+    public float dashForce = 20f;
+    public float dashDuration = 0.2f;
+
+    [Header("Spin (Stun)")]
+    public float spinSpeed = 15f;
+    public float spinDuration = 1f;
+
+    Rigidbody rb;
+
+    bool isDashing = false;
+    bool isSpinning = false;
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && !isDashing && !isSpinning)
+        {
+            StartCoroutine(DashAndSpin());
+        }
+    }
+
+    void FixedUpdate()
+    {
+        if (!isDashing && !isSpinning)
+        {
+            Move();
+        }
+
+        if (isSpinning)
+        {
+            rb.angularVelocity = new Vector3(0, spinSpeed, 0);
+        }
+    }
+
+    void Move()
+    {
+        float h = Input.GetAxis("Horizontal");
+        float v = Input.GetAxis("Vertical");
+
+        Vector3 direction = new Vector3(h, 0, v);
+
+        if (direction.magnitude > 0.1f)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 10f * Time.deltaTime);
+        }
+
+        float mass = rb.mass;
+        Vector3 force = mass * moveAcceleration * direction;
+
+        rb.AddForce(force);
+    }
+
+    IEnumerator DashAndSpin()
+    {
+        isDashing = true;
+
+        Vector3 direction = transform.forward;
+        rb.AddForce(direction * dashForce, ForceMode.Impulse);
+
+        yield return new WaitForSeconds(dashDuration);
+
+        isDashing = false;
+
+        isSpinning = true;
+
+        yield return new WaitForSeconds(spinDuration);
+
+        isSpinning = false;
+        rb.angularVelocity = Vector3.zero;
+    }
+}
