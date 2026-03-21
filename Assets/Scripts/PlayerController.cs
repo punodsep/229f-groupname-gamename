@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
     bool isDashing = false;
     bool isSpinning = false;
 
+    public GameManager gm;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -56,9 +58,8 @@ public class PlayerController : MonoBehaviour
             Quaternion targetRotation = Quaternion.LookRotation(direction);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 10f * Time.deltaTime);
         }
-
         float mass = rb.mass;
-        Vector3 force = mass * moveAcceleration * direction;
+        Vector3 force = rb.mass * moveAcceleration * direction;
 
         rb.AddForce(force);
     }
@@ -80,5 +81,21 @@ public class PlayerController : MonoBehaviour
 
         isSpinning = false;
         rb.angularVelocity = Vector3.zero;
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Hole"))
+        {
+            gm.ReachHole();
+        }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            gm.TakeDamage();
+        }
     }
 }
