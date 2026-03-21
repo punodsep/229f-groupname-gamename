@@ -1,13 +1,9 @@
 ﻿using System.Collections;
-using System.Security.Cryptography;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     public float moveAcceleration = 10f;
-
-    [Header("Rotate")]
-    public float rotateSpeed = 120f;
 
     [Header("Dash")]
     public float dashForce = 20f;
