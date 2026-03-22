@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
@@ -8,6 +9,7 @@ public class GameManager : MonoBehaviour
     public int highScore = 0;
     public int hp = 3;
     public float timeLeft = 60f;
+    public float wait = 1f;
 
     public Transform hole;
     public GameObject enemyPrefab;
@@ -57,9 +59,9 @@ public class GameManager : MonoBehaviour
             highScoreText.text = "HighScore: " + highScore;
         }
 
-        hole.position = new Vector3(Random.Range(-16, 16), 0, Random.Range(-9, 9));
+        hole.position = new Vector3(Random.Range(-17, 17), 0, Random.Range(-9, 6));
 
-        Instantiate(enemyPrefab, new Vector3(Random.Range(-16, 16), 1, Random.Range(-9, 9)), Quaternion.identity);
+        Instantiate(enemyPrefab, new Vector3(Random.Range(-17, 17), 1, Random.Range(-9, 6)), Quaternion.identity);
     }
 
     public void Damage()
@@ -70,13 +72,15 @@ public class GameManager : MonoBehaviour
 
         if (hp <= 0)
         {
-            GameOver();
+            StartCoroutine(GameOver());
         }
     }
 
-    void GameOver()
+    IEnumerator GameOver()
     {
         Debug.Log("Game Over");
+        yield return new WaitForSeconds(wait);
+
         Time.timeScale = 0;
     }
 

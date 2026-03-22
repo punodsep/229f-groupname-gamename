@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public GameManager gm;
+
     public float moveAcceleration = 10f;
 
     [Header("Dash")]
@@ -13,12 +15,14 @@ public class PlayerController : MonoBehaviour
     public float spinSpeed = 15f;
     public float spinDuration = 1f;
 
+    [Header("Particles")]
+    public ParticleSystem moveParticle;
+    public ParticleSystem bombParticle;
+
     Rigidbody rb;
 
     bool isDashing = false;
     bool isSpinning = false;
-
-    public GameManager gm;
 
     void Start()
     {
@@ -57,7 +61,20 @@ public class PlayerController : MonoBehaviour
         {
             Quaternion targetRotation = Quaternion.LookRotation(direction);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 10f * Time.deltaTime);
+
+            if (!moveParticle.isPlaying)
+            {
+                moveParticle.Play();
+            }
         }
+        else
+        {
+            if (moveParticle.isPlaying)
+            {
+                moveParticle.Stop();
+            }
+        }
+
         float mass = rb.mass;
         Vector3 force = rb.mass * moveAcceleration * direction;
 
@@ -96,6 +113,8 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             gm.Damage();
+            bombParticle.Play();
+            Destroy(collision.gameObject);
         }
     }
 
