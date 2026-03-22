@@ -9,14 +9,14 @@ public class GameManager : MonoBehaviour
     public int hp = 3;
     public float timeLeft = 60f;
 
+    public Transform hole;
+    public GameObject enemyPrefab;
+
     [Header("UI Elements")]
     public Slider hpBar;
     public Slider timeBar;
     public TMP_Text scoreText;
     public TMP_Text highScoreText;
-
-    public Transform hole;
-    public GameObject enemyPrefab;
 
     void Start()
     {
