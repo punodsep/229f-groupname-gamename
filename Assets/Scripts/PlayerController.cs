@@ -91,13 +91,12 @@ public class PlayerController : MonoBehaviour
 
         Vector3 direction = transform.forward;
         rb.AddForce(direction * dashForce, ForceMode.Impulse);
-
+        SFXManager.Instance.PlaySFX("Dash");
         yield return new WaitForSeconds(dashDuration);
-
         isDashing = false;
 
         isSpinning = true;
-
+        SFXManager.Instance.PlaySFX("Stun");
         yield return new WaitForSeconds(spinDuration);
 
         isSpinning = false;
@@ -109,6 +108,7 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Hole"))
         {
             gm.ReachHole();
+            SFXManager.Instance.PlaySFX("Hole");
             scoreParticle.Play();
         }
     }
@@ -118,6 +118,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             gm.Damage();
+            SFXManager.Instance.PlaySFX("Bomb");
             bombParticle.Play();
             Destroy(collision.gameObject);
         }

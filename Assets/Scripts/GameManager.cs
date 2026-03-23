@@ -88,6 +88,8 @@ public class GameManager : MonoBehaviour
 
         if (hp <= 0)
         {
+            SFXManager.Instance.PlaySFX("Dead");
+            endParticle.Play();
             StartCoroutine(GameOver());
         }
     }
@@ -95,14 +97,11 @@ public class GameManager : MonoBehaviour
     IEnumerator GameOver()
     {
         Debug.Log("Game Over");
-        
-        yield return new WaitForSeconds(wait);
-        endParticle.Play();
-        yield return new WaitForSeconds(wait);
 
+        yield return new WaitForSeconds(wait);
         gameUI.SetActive(false);
         scoreUI.SetActive(true);
-
+        SFXManager.Instance.PlaySFX("ShowScore");
         pauseMenu.Pause();
     }
 
