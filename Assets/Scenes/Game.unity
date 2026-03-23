@@ -559,7 +559,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 197049388}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1532454328}
+        m_TargetAssemblyTypeName: LoadScene, Assembly-CSharp
+        m_MethodName: LoadSceneMain
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &197049388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1336,7 +1348,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 3
   m_WholeNumbers: 0
-  m_Value: 1.01
+  m_Value: 3
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2599,7 +2611,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &839450648
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3887,7 +3899,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1123414257}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1532454328}
+        m_TargetAssemblyTypeName: LoadScene, Assembly-CSharp
+        m_MethodName: LoadSceneMain
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1123414257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4325,7 +4349,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.33666667
+  m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -4494,7 +4518,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1182978439}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1532454328}
+        m_TargetAssemblyTypeName: LoadScene, Assembly-CSharp
+        m_MethodName: LoadSceneGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1182978439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5522,6 +5558,7 @@ GameObject:
   - component: {fileID: 1532454326}
   - component: {fileID: 1532454325}
   - component: {fileID: 1532454327}
+  - component: {fileID: 1532454328}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -5556,6 +5593,7 @@ MonoBehaviour:
   scoreSumText: {fileID: 546502686}
   highScoreText: {fileID: 1839548844}
   gameUI: {fileID: 1612253771}
+  pauseUI: {fileID: 855769146}
   scoreUI: {fileID: 839450647}
 --- !u!4 &1532454326
 Transform:
@@ -5584,6 +5622,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8e7a0221745ef7418db22b7635e0b61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1532454328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1532454324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c55e8866aadb554286fb57529b61a20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 1532454327}
 --- !u!1 &1612253771
 GameObject:
   m_ObjectHideFlags: 0

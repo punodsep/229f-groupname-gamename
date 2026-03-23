@@ -26,12 +26,15 @@ public class GameManager : MonoBehaviour
 
     [Header("UI Panels")]
     public GameObject gameUI;
+    public GameObject pauseUI;
     public GameObject scoreUI;
 
     void Start()
     {
         pauseMenu.Resume();
         gameUI.SetActive(true);
+        pauseUI.SetActive(false);
+        scoreUI.SetActive(false);
 
         highScore = PlayerPrefs.GetInt("HighScore", 0);
 
