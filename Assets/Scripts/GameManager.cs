@@ -21,10 +21,18 @@ public class GameManager : MonoBehaviour
     public Slider hpBar;
     public Slider timeBar;
     public TMP_Text scoreText;
+    public TMP_Text scoreSumText;
     public TMP_Text highScoreText;
+
+    [Header("UI Panels")]
+    public GameObject gameUI;
+    public GameObject scoreUI;
 
     void Start()
     {
+        pauseMenu.Resume();
+        gameUI.SetActive(true);
+
         highScore = PlayerPrefs.GetInt("HighScore", 0);
 
         hpBar.maxValue = hp;
@@ -34,7 +42,8 @@ public class GameManager : MonoBehaviour
         timeBar.value = timeLeft;
 
         scoreText.text = "" + score;
-        highScoreText.text = "HighScore: " + highScore;
+        scoreSumText.text = "" + score;
+        highScoreText.text = "" + highScore;
     }
 
     void Update()
@@ -54,12 +63,13 @@ public class GameManager : MonoBehaviour
     {
         score++;
         scoreText.text = "" + score;
+        scoreSumText.text = "" + score;
 
         if (score > highScore)
         {
             highScore = score;
             PlayerPrefs.SetInt("HighScore", highScore);
-            highScoreText.text = "HighScore: " + highScore;
+            highScoreText.text = "" + highScore;
         }
 
         hole.position = new Vector3(Random.Range(-17, 17), 0, Random.Range(-9, 6));
@@ -87,6 +97,9 @@ public class GameManager : MonoBehaviour
         endParticle.Play();
         yield return new WaitForSeconds(wait);
 
+        gameUI.SetActive(false);
+        scoreUI.SetActive(true);
+
         pauseMenu.Pause();
     }
 
@@ -94,7 +107,7 @@ public class GameManager : MonoBehaviour
     {
         PlayerPrefs.DeleteKey("HighScore");
         highScore = 0;
-        highScoreText.text = "HighScore: 0";
+        highScoreText.text = "" + highScore;
         Debug.Log("HighScore reset!");
     }
 }
