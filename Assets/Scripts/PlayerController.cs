@@ -18,6 +18,9 @@ public class PlayerController : MonoBehaviour
     [Header("Particles")]
     public ParticleSystem moveParticle;
     public ParticleSystem bombParticle;
+    public ParticleSystem waterParticle;
+    public ParticleSystem stunParticle;
+    public ParticleSystem scoreParticle;
 
     Rigidbody rb;
 
@@ -47,6 +50,7 @@ public class PlayerController : MonoBehaviour
         if (isSpinning)
         {
             rb.angularVelocity = new Vector3(0, spinSpeed, 0);
+            stunParticle.Play();
         }
     }
 
@@ -105,6 +109,7 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Hole"))
         {
             gm.ReachHole();
+            scoreParticle.Play();
         }
     }
 
@@ -115,6 +120,11 @@ public class PlayerController : MonoBehaviour
             gm.Damage();
             bombParticle.Play();
             Destroy(collision.gameObject);
+        }
+
+        if (collision.gameObject.CompareTag("Water"))
+        {
+            waterParticle.Play();
         }
     }
 

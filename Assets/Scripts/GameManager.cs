@@ -5,6 +5,8 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    public PauseMenu pauseMenu;
+
     public int score = 0;
     public int highScore = 0;
     public int hp = 3;
@@ -13,6 +15,7 @@ public class GameManager : MonoBehaviour
 
     public Transform hole;
     public GameObject enemyPrefab;
+    public ParticleSystem endParticle;
 
     [Header("UI Elements")]
     public Slider hpBar;
@@ -30,7 +33,7 @@ public class GameManager : MonoBehaviour
         timeBar.maxValue = timeLeft;
         timeBar.value = timeLeft;
 
-        scoreText.text = "Score: " + score;
+        scoreText.text = "" + score;
         highScoreText.text = "HighScore: " + highScore;
     }
 
@@ -43,14 +46,14 @@ public class GameManager : MonoBehaviour
 
         if (timeLeft <= 0)
         {
-            GameOver();
+            StartCoroutine(GameOver());
         }
     }
 
     public void ReachHole()
     {
         score++;
-        scoreText.text = "Score: " + score;
+        scoreText.text = "" + score;
 
         if (score > highScore)
         {
@@ -79,9 +82,12 @@ public class GameManager : MonoBehaviour
     IEnumerator GameOver()
     {
         Debug.Log("Game Over");
+        
+        yield return new WaitForSeconds(wait);
+        endParticle.Play();
         yield return new WaitForSeconds(wait);
 
-        Time.timeScale = 0;
+        pauseMenu.Pause();
     }
 
     public void ResetHighScore()
