@@ -182,9 +182,9 @@ MonoBehaviour:
     From Unity Asset Store\r\nLow Poly Pine Forest By Poly Ronin\r\nLowPoly Water
     By Ebru Dogan\r\nPolygonal's Low-Poly Particle Pack By Polygonal Stuff\r\n\r\nAsset
     From fab.com\r\nSunflower Seed by Render at Night\r\n\r\nSFX From Pixabay\r\n\r\nBGM
-    From elevenlabs.io\r\n\r\n------- PRESENTED BY -------\n \r\nSchool of Information
-    Technology and Innovation \r\nFaculty of Game And Interactive Media\r\n\r\nBangkok
-    University"
+    From elevenlabs AI\n\nUI Asset From Canva AI\r\n\r\n------- PRESENTED BY -------\n
+    \r\nSchool of Information Technology and Innovation \r\nFaculty of Game And Interactive
+    Media\r\n\r\nBangkok University"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -298,7 +298,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 20, y: -3074}
+  m_AnchoredPosition: {x: 20, y: -3271}
   m_SizeDelta: {x: 1898, y: 444}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &172528610
@@ -339,6 +339,74 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 172528608}
   m_CullTransparentMesh: 1
+--- !u!1001 &569298183
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5193778039561832403, guid: 1c85cf9f952fc3e4ab71f40d83b80aa4, type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8645212288458623792, guid: 1c85cf9f952fc3e4ab71f40d83b80aa4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8645212288458623792, guid: 1c85cf9f952fc3e4ab71f40d83b80aa4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8645212288458623792, guid: 1c85cf9f952fc3e4ab71f40d83b80aa4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8645212288458623792, guid: 1c85cf9f952fc3e4ab71f40d83b80aa4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8645212288458623792, guid: 1c85cf9f952fc3e4ab71f40d83b80aa4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8645212288458623792, guid: 1c85cf9f952fc3e4ab71f40d83b80aa4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8645212288458623792, guid: 1c85cf9f952fc3e4ab71f40d83b80aa4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8645212288458623792, guid: 1c85cf9f952fc3e4ab71f40d83b80aa4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8645212288458623792, guid: 1c85cf9f952fc3e4ab71f40d83b80aa4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8645212288458623792, guid: 1c85cf9f952fc3e4ab71f40d83b80aa4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1c85cf9f952fc3e4ab71f40d83b80aa4, type: 3}
+--- !u!114 &569298186 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5592308415049234656, guid: 1c85cf9f952fc3e4ab71f40d83b80aa4, type: 3}
+  m_PrefabInstance: {fileID: 569298183}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 755ac051e6581c64fb0a78d75380c728, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &712191150
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,7 +438,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   creditTransform: {fileID: 934296702}
   scrollSpeed: 100
-  endPositionY: 3600
+  endPositionY: 4000
 --- !u!4 &712191152
 Transform:
   m_ObjectHideFlags: 0
@@ -792,6 +860,7 @@ GameObject:
   - component: {fileID: 1639203546}
   - component: {fileID: 1639203545}
   - component: {fileID: 1639203544}
+  - component: {fileID: 1639203547}
   m_Layer: 5
   m_Name: Quit Button
   m_TagString: Untagged
@@ -912,6 +981,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1639203542}
   m_CullTransparentMesh: 1
+--- !u!114 &1639203547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1639203542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 569298186}
+          m_TargetAssemblyTypeName: SFXManager, Assembly-CSharp
+          m_MethodName: Hold
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 569298186}
+          m_TargetAssemblyTypeName: SFXManager, Assembly-CSharp
+          m_MethodName: Click
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1978776875
 GameObject:
   m_ObjectHideFlags: 0
@@ -1098,3 +1212,4 @@ SceneRoots:
   - {fileID: 1978776878}
   - {fileID: 712191152}
   - {fileID: 815690421}
+  - {fileID: 569298183}

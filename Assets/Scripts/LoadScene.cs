@@ -31,4 +31,9 @@ public class LoadScene : MonoBehaviour
     {
         SceneManager.LoadScene("Game"); 
     }
+
+    public void LoadSceneCredit()
+    {
+        SceneManager.LoadScene("CreditScene");
+    }
 }
